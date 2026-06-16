@@ -2068,7 +2068,7 @@ function normalizeInheritanceSentence(value) {
   return value.replace(/\s+/g, " ").trim().slice(0, 80);
 }
 
-function updateInheritanceSentence(value, status = "正在生成绣签") {
+function updateInheritanceSentence(value, status = "已记录，等待生成图样") {
   const sentence = normalizeInheritanceSentence(value);
   state.inheritanceSentence = sentence;
   inheritanceInput.value = sentence;
@@ -2605,7 +2605,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 inheritanceInput.addEventListener("input", () => {
-  updateInheritanceSentence(inheritanceInput.value, "正在生成绣签");
+  updateInheritanceSentence(inheritanceInput.value, "已记录，等待生成图样");
   if (!inheritanceInput.value.trim()) {
     resetGeneratedPattern();
   } else if (state.generatedPatternUrl) {
